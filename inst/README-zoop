@@ -1,0 +1,25 @@
+Doc page:													
+													
+Source:	NOAA NMFS NEFSC Oceanography Branch												
+													
+Version:	
+    2.5	Data updated through 2013											
+	2.4a	Time format updated to hh24:mm from hh:mm											
+	2.4	Additional columns added.  Data updated through 2011											
+	2.3	Not issued 											
+	2.2	Version 2.1 data with Taxa assigned to different columns and further breakdown.											
+	2.1	Data retrieved from updated database (see note 5); data updated through 2011											
+	1.3	time added to variables											
+	1.2	all data through 2007											
+	1.1	data east of 71oW											
+													
+Reference:	Kane J (2007) Zooplankton abundance trends on Georges Bank, 1977-2004. ICES Journal of Marine Science 64(5):909-919												
+	Kane J (2011) Inter-decadal variability of zooplankton abundance in the Middle Atlantic Bight. Journal of Northwest Atlantic Fishery Science 43: 81-92												
+													
+Notes:	values are number per 100 m3 and 10 m2												
+	taxa were selected based on time series mean abundance > 100 per 100 m3 and occurrence in greater than 5% of samples; requests for the inclusion of other taxa in future versions will be considered (contact jon.hare@noaa.gov)												
+	upon review of the characteristics of tows, some stations included in 100M3 calculations was omitted from 10M2 calculations												
+	time is Greenwich Mean Time												
+	We are in the process of converting and consolidating database systems that store Plankton data from various sources, some historical corrections have been made and have resulted in minor changes to the historical data for approximately 0.01% of the stations.  We expect these processing changes to speed the availability of data and increase the amount of data available for analysis												
+	As part of the database consolidation cruise naming has been standardized, cruises previously designated DLxxxx are now DExxxx.												
+													
