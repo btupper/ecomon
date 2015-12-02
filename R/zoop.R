@@ -43,6 +43,11 @@ read_zoop <- function(what = c("m2", "m3")[2], filename = NULL){
 ######### functions above
 ######### class and methods below
 
+#' A simple container class for the Zoop data set.
+#'
+#' @export
+#' @field version character, the data version if known
+#' @field data a data.frame or NULL
 ZoopRefClass <- setRefClass("ZoopRefClass",
    fields = list(
       version = 'character',

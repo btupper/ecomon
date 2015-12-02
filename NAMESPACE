@@ -2,3 +2,4 @@
 
 export(read_zoop)
 export(show_docs)
+exportClasses(ZoopRefClass)
