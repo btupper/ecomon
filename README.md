@@ -14,7 +14,11 @@ install_github("btupper/ecomon")
 ### Read ZOOP data
 
 ```R
+
 library(ecomon)
-X <- ZoopRefClass$new()
+X <- Zoop()
 X
+
+# get just salp data within a bounding box
+x <- X$get(species = 'salps', bb = c(-75,-60, 35, 38))
 ```
