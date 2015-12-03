@@ -14,7 +14,7 @@
 #' @return a data.frame or NULL
 read_zoop <- function(what = c("m2", "m3")[2], filename = NULL){
    
-   if (!is.null(filename)){
+   if (is.null(filename)){
       filename <- file.path(system.file(package = 'ecomon'),
          switch(tolower(what[1]),
             'm2' = 'EcoMon_Zooplankton_Data_m2_v2_5.csv.gz',
@@ -63,7 +63,6 @@ ZoopRefClass <- setRefClass("ZoopRefClass",
          print(summary(.self$data))
       })
    )
-
 
 #' Get one or more records
 #'
@@ -132,3 +131,14 @@ ZoopRefClass$methods(
      
       invisible(x)  
    })
+
+
+#' Create an instance of a ZoopRefClass object
+#'
+#' @export
+#' @param ... further arguments for \code{\link{read_zoop}}
+#' @return an instance of ZoopRefClass
+Zoop <- function(...){
+   getRefClass("ZoopRefClass")$new(...)
+}
+   
