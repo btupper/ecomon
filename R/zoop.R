@@ -64,6 +64,21 @@ ZoopRefClass <- setRefClass("ZoopRefClass",
       })
    )
 
+#' Retain one or more columns - others are removed
+#' 
+#' @name ZoopRefClass_retain
+#' @param name character vector of one or more columns to retain
+ZoopRefClass$methods(
+   retain = function(name = 'salps'){
+      nm <- names(.self$data)
+      ix <- grep("volume_", nm, fixed = TRUE)
+
+      keep <- nm %in% name
+      keep[1:ix] <- TRUE
+      .self$data <- .self$data[,keep]
+      invisible(NULL)
+   })
+
 #' Get one or more records
 #'
 #' @name ZoopRefClass_get
