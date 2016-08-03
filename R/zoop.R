@@ -36,6 +36,7 @@ read_zoop <- function(what = c("m2", "m3")[2], filename = NULL){
    
    # fix issues with depth
    x[,'depth'] <- as.numeric(gsub(",", "", x[,'depth']))
+   x[x$depth >= 9999,'depth'] <- NA
    
    # replace date and time with POSIXct
    dt <- as.POSIXct(paste(x[,'date'], paste0(x[,'time'],":00")),
