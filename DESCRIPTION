@@ -4,10 +4,12 @@ Author: Ben Tupper <btupper@bigelow.org>
 URL: https://github.com/btupper/ecomon
 Version: 0.1
 License: GPL (>= 2)
-Title: ecomon 
-Description: Tools for working with [NEFSC](http://www.nefsc.noaa.gov/epd/ocean/MainPage/shelfwide.html) EcoMon data sets.
+Title: ecomon
+Description: Tools for working with [NEFSC](http://www.nefsc.noaa.gov/epd/ocean/
+    MainPage/shelfwide.html) EcoMon data sets.
 Depends:
     R (>= 3.0)
 Imports:
     methods,
     sp
+RoxygenNote: 5.0.1

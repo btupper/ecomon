@@ -1,6 +1,17 @@
 ### ecomon
 
-R tools for reading and querying [Ecomon](http://www.nefsc.noaa.gov/epd/ocean/MainPage/shelfwide.html) datasets
+R tools for reading and querying [Ecomon](http://www.nefsc.noaa.gov/epd/ocean/MainPage/shelfwide.html) version 2.6 datasets.
+
+
+### Data source
+
+  + Kane J (2007) Zooplankton abundance trends on Georges Bank, 1977-2004. ICES Journal of Marine Science 64(5):909-919											
+  + Kane J (2011) Inter-decadal variability of zooplankton abundance in the Middle Atlantic Bight. Journal of Northwest Atlantic Fishery Science 43: 81-92											
+
+### Data prep
+
+Data were downloaded in an multi-tab [Excel](http://office.microsoft.com/en-us/excel) spreadsheet.  Tabs labeled `10m2` and `100m3` were exported as [comma delimited text files](https://en.wikipedia.org/wiki/Comma-separated_values) and [gzipped](http://www.gzip.org/).  These are stored in the package distribution.  The data can be read using the `read_zoop()` function or by using the convenience class `ZoopRefClass` as shown below.
+
 
 ### Requirements
 
@@ -22,8 +33,10 @@ install_github("BigelowLab/ecomon")
 ```R
 
 library(ecomon)
-X <- Zoop()
+X <- Zoop(what = 'm2')   # same as X <- Zoop()
+                         # or for volumetric data X <- Zoop(what = 'm3')
 X 
+# ... lot of stuff printed
 
 # get just salp data within a bounding box
 x <- X$get(species = 'salps', bb = c(-75,-60, 35, 38))

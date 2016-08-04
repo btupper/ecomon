@@ -2,7 +2,11 @@
 
 
 
-   
+#' Retrieve the Zoo-Ichy data version
+#'
+#' @export
+#' @return character version identifier
+zoop_version <- function() {return("2_6")}
 
 #' Read the Zoo-Ichy Plankton data sheet.
 #'
@@ -15,10 +19,12 @@
 read_zoop <- function(what = c("m2", "m3")[2], filename = NULL){
    
    if (is.null(filename)){
+      
+      fini <- sprintf("_v%s.csv.gz", zoop_version())
       filename <- file.path(system.file(package = 'ecomon'),
          switch(tolower(what[1]),
-            'm2' = 'EcoMon_Zooplankton_Data_m2_v2_5.csv.gz',
-            'm3' = 'EcoMon_Zooplankton_Data_m3_v2_5.csv.gz',
+            'm2' = paste0('EcoMon_Zooplankton_Data_m2', fini),
+            'm3' = paste0('EcoMon_Zooplankton_Data_m3', fini),
             stop("what is not known:", what[1])))
    }
    
@@ -30,6 +36,7 @@ read_zoop <- function(what = c("m2", "m3")[2], filename = NULL){
    
    # fix issues with depth
    x[,'depth'] <- as.numeric(gsub(",", "", x[,'depth']))
+   x[x$depth >= 9999,'depth'] <- NA
    
    # replace date and time with POSIXct
    dt <- as.POSIXct(paste(x[,'date'], paste0(x[,'time'],":00")),
@@ -54,7 +61,7 @@ ZoopRefClass <- setRefClass("ZoopRefClass",
       data = 'ANY'),
    methods = list(
       initialize = function(...){
-         .self$version = '2.5'
+         .self$version = zoop_version()
          .self$data = ecomon::read_zoop(...)
          },
       show = function(){
