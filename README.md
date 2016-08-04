@@ -14,7 +14,7 @@ It is easy to install with [devtools](https://cran.r-project.org/web/packages/de
 
 ```R
 library(devtools)
-install_github("btupper/ecomon")
+install_github("BigelowLab/ecomon")
 ```
 
 ### Read ZOOP data
